@@ -7,6 +7,7 @@ import {HeaderLayout} from "./Layouts/HeaderLayout";
 import Mycontent from "./Layouts/Mycontent";
 import {Footer} from "antd/es/layout/layout";
 import {Layout} from "antd";
+import {FormLayout} from "./Layouts/FormLayout";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         }}>
           <Mycontent />
         </div>
+          <h1 style={{textAlign:'center'}}>Forma Mea</h1>
+          <FormLayout/>
         <Footer style={{ textAlign: 'center' }}>Grosu Victor</Footer>
       </Layout>
   );
