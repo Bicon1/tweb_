@@ -1,69 +1,28 @@
-
-import { Row } from 'antd';
-import CustomCard from './CustomCard';
-
-const description = [
-    {
-        id: 1,
-        title: "Titlul Cardului 1",
-        description: "description"
-    },
-    {
-        id: 2,
-        title: "Titlul Cardului 2",
-        description: "description"
-    },
-    {
-        id: 3,
-        title: "Titlul Cardului 3",
-        description: "description"
-    },
-    {
-        id: 4,
-        title: "Titlul Cardului 4",
-        description: "description"
-    },
-    {
-        id: 5,
-        title: "Titlul Cardului 5",
-        description: "description"
-    },
-    {
-        id: 6,
-        title: "Titlul Cardului 6",
-        description: "description"
-    },
-    {
-        id: 7,
-        title: "Titlul Cardului 7",
-        description: "description"
-    },
-    {
-        id: 8,
-        title: "Titlul Cardului 8",
-        description: "description"
-    },
-    {
-        id: 9,
-        title: "Titlul Cardului 9",
-        description: "description"
-    },
-]
+import {Breadcrumb, Row} from 'antd';
+import {CustomCard} from './CustomCard';
+import {Content} from "antd/es/layout/layout";
+import {useRootStore} from "../index";
+import {IContentModel} from "../interface/Interfaces";
 
 
-function Mycontent() {
+
+export  const  Mycontent = () => {
+    const {contents} = useRootStore()
+    console.log(">>root_store",contents)
     return (
-
-        <Row gutter={16} >
-            {
-                description.map((element, i) => {
+        <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
+            <Row gutter={16} >
+                {contents.map((content:IContentModel) => {
                     return (
-                        <CustomCard key={element.id} title={element.title} description={element.description}/>
+                        <CustomCard key={content.id} content={content}/>
                     )
-                })
-            }
-        </Row>
+                } )}
+
+            </Row>
+
+        </div>
+
+
+
     )
 }
-
-export default Mycontent
