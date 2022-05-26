@@ -9,8 +9,8 @@ export const loginStore = LoginStore.create({
         },
         {
             id: '2',
-            user: 'Dorel',
-            password: 'dorel123'
+            user: 'Victor',
+            password: 'Victor123'
         }
     ]
 })
