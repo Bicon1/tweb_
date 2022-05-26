@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'antd/dist/antd.css'
@@ -8,22 +8,28 @@ import {Mycontent} from "./Layouts/Mycontent";
 import {Footer} from "antd/es/layout/layout";
 import {Layout} from "antd";
 import {FormLayout} from "./Layouts/FormLayout";
+import {useRootStore} from "./index";
 
 function App() {
-  return (
-      <Layout>
-        <>
-          <HeaderLayout/>
-        </>
-        <div style={{ padding: '100px 50px 50px 50px'
-        }}>
-          <Mycontent />
-        </div>
-          {/*<h1 style={{textAlign:'center'}}>Forma Mea</h1>*/}
-          {/*<FormLayout/>*/}
-        <Footer style={{ textAlign: 'center' }}>Grosu Victor</Footer>
-      </Layout>
-  );
+    const roottoStore =useRootStore()
+    useEffect(()=>{
+        roottoStore.setInitialStorageValue()
+        roottoStore.setDatainLocalStorage()
+        roottoStore.getDatafromLocalStorage()
+        // roottoStore.removemyLocalStorage()
+    },[])
+    return (
+        <Layout>
+            <>
+                <HeaderLayout/>
+            </>
+            <div style={{ padding: '100px 50px 50px 50px'
+            }}>
+                <Mycontent />
+            </div>
+            <Footer style={{ textAlign: 'center' }}>Guțanov Dorel</Footer>
+        </Layout>
+    );
 }
 
 export default App;
